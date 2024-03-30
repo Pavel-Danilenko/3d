@@ -1,0 +1,121 @@
+@import url("reset.css");
+@import url("common.css");
+
+body {
+   font-family: 'Poppins', sans-serif;
+   font-weight: 700;
+   font-size: 12px;
+   color: #ffffff;
+}
+
+
+
+.wrapper {
+   overflow: clip;
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+   background-color: #202121;
+}
+
+.wrapper>main {
+   flex: 1 1;
+}
+
+[class*='__container'] {
+   max-width: 1230px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
+
+img {
+   width: 100%;
+   height: 100%;
+}
+
+/*----------------------------*/
+
+:root {
+   --index: calc(1vw + 1vh);
+}
+
+
+
+.wrapper {}
+
+.scroll {
+   height: 550vh;
+   position: relative;
+}
+
+.scroll__bg {
+   height: 100vh;
+   width: 100vw;
+   background-position: center;
+   background-size: cover;
+   position: fixed;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   animation-timeline: scroll();
+   animation-timing-function: linear;
+   animation-fill-mode: both;
+   animation-range: 0 300vh;
+}
+
+.scroll__bg:nth-child(1) { animation-name: animation-1; } 
+@keyframes animation-1 { to { scale: 1.25; }}
+
+.scroll__bg:nth-child(2) { animation-name: animation-2; }
+@keyframes animation-2 { to { scale: 1.276; }}
+
+.scroll__bg:nth-child(3) { animation-name: animation-3; }
+@keyframes animation-3 { to { scale: 1.5; }}
+
+.scroll__bg:nth-child(4) { animation-name: animation-4; }
+@keyframes animation-4 { to { scale: 2; }}
+
+.scroll__bg:nth-child(5) { 
+   opacity: 0;
+   animation-name: animation-end;
+   animation-range: 250vh 300vh;
+}
+@keyframes animation-end { to { opacity: 1; }}
+
+.scroll__content {
+   padding: 5vh 5vw;
+   backdrop-filter: blur(25px) brightness(0.95);
+   animation-timeline: scroll();
+   animation-timing-function: linear;
+   animation-fill-mode: both;
+   animation-range: 0 150vh;
+   animation-name: content;
+}
+@keyframes content { to { opacity: 0; filter: blur(25px) } }
+
+.scroll__title {
+   text-transform: uppercase;
+   font-size: calc(var(--index) * 4.6);
+   text-align: center;
+   line-height: 1.3;
+   letter-spacing: -0.1vw;
+}
+
+.scroll__end::before {
+   content: '';
+   background-color: #03122c;
+   inset: 0;
+   opacity: 0;
+   position: absolute;
+   animation-timeline: scroll();
+   animation-timing-function: linear;
+   animation-fill-mode: both;
+   animation-range: 320vh 450vh;
+   animation-name: bg;
+}
+@keyframes bg { to { opacity: 1; } }
+
+.h2 {
+   position: relative;
+   font-size: 4rem;
+}
